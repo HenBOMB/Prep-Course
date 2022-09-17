@@ -39,16 +39,10 @@ function capToFront(s) {
   //Ejemplo: soyHENRY -> HENRYsoy
   //Escribe tu código aquí
 
-  let u = '';
-  let d = '';
+  s = s.split('');
 
-  for (let i = 0; i < s.length; i++) 
-  {
-    if(s[i] === s[i].toUpperCase())
-      u += s[i];
-    else
-      d += s[i];
-  }
+  const u = s.filter(v => v === v.toUpperCase()).join('');
+  const d = s.filter(v => v !== v.toUpperCase()).join('');
 
   return u + d;
 }
@@ -60,14 +54,7 @@ function asAmirror(str) {
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí;
-
-  let arr = str.split(' ');
-  let out = [];
-
-  for (let i = 0; i < arr.length; i++)
-    out.push(arr[i].split('').reverse().join(''));
-
-  return out.join(' ');
+  return str.split(' ').map(v => v.split('').reverse().join('')).join(' ');
 } 
 
 
@@ -103,11 +90,7 @@ function buscoInterseccion(arreglo1, arreglo2){
   //Si no tienen elementos en común, retornar un arreglo vacío.
   //Aclaración: los arreglos no necesariamente tienen la misma longitud
   //Escribe tu código aquí  
-  const arr = [];
-  for (let i = 0; i < arreglo1.length; i++)
-    if(arreglo2.includes(arreglo1[i]))
-      arr.push(arreglo1[i]);
-  return arr;
+  return arreglo1.filter(v => arreglo2.includes(v));
 }
 
 
