@@ -32,7 +32,7 @@ function forEach(array, cb) {
   // Itera sobre la matriz "array" y pasa los valores al callback uno por uno
   // Pista: Estarás invocando a `cb` varias veces (una por cada valor en la matriz)
   //Tu código:
-  array.forEach(e => cb(e));
+  array.forEach(v => cb(v));
 }
 
 function map(array, cb) {
@@ -41,7 +41,7 @@ function map(array, cb) {
   // El nuevo array debe tener la misma longitud que el array del argumento
   //Tu código:
   const arr = [];
-  array.forEach(e => arr.push(cb(e)));
+  array.forEach(v => arr.push(cb(v)));
   return arr;
 }
 
@@ -49,7 +49,7 @@ function filter(array) {
   //Filtrar todos los elementos del array que comiencen con la letra "a".
   //Devolver un nuevo array con los elementos que cumplen la condición
   //Tu código:
-  return array.filter(item => item[0] === 'a');
+  return array.filter(v => item[0] === 'a');
 }
 
 // No modificar nada debajo de esta línea

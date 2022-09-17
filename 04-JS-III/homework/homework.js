@@ -70,13 +70,7 @@ function agregarNumeros(numeros) {
   // "numeros" debe ser un arreglo de enteros (int/integers)
   // Suma todos los enteros y devuelve el valor
   // Tu código:
-  let sum = 0;
-
-  numeros.forEach(e => {
-    sum += e;
-  });
-
-  return sum;
+  return numeros.reduce((acc, cur) => acc + cur);
 }
 
 
@@ -92,13 +86,7 @@ function numeroMasGrande(numeros) {
   // "numeros" debe ser una matriz de enteros (int/integers)
   // Devuelve el número más grande
   // Tu código:
-  let d = 0;
-  
-  for (let i = 0; i < numeros.length; i++)
-    if(d < numeros[i])
-      d = numeros[i];
-
-  return d;
+  return numeros.reduce((acc, cur) => acc > cur? acc : cur);
 }
 
 // !BAD
@@ -149,10 +137,7 @@ function todosIguales(arreglo) {
   //Escriba la función todosIguales, que indique si todos los elementos de un arreglo son iguales:
   //retornar true, caso contrario retornar false.
   //Escribe tu código aquí  
-  let x = arreglo[0];
-  for (let i = 1; i < arreglo.length; i++)
-    if(arreglo[i] != x) return false;
-  return true;
+  return !arreglo.some(v => v != arreglo[0]);
 } 
 
 function mesesDelAño(array) {
@@ -160,18 +145,10 @@ function mesesDelAño(array) {
   // "Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
   //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
-  const arr = [];
-
-  for (let i = 0; i < array.length; i++) {
-    if(array[i] === 'Enero')
-      arr.push(array[i]);
-    if(array[i] === 'Marzo')
-      arr.push(array[i]);
-    if(array[i] === 'Noviembre')
-      arr.push(array[i]);
-  }
-
-  return arr.length != 3? "No se encontraron los meses pedidos" : arr;
+  const arr = array.filter(
+    v => v === 'Enero' || v === 'Marzo' || v === 'Noviembre'
+  );
+  return arr.length == 3? arr : "No se encontraron los meses pedidos" ;
 }
 
 
@@ -179,12 +156,7 @@ function mayorACien(array) {
   //La función recibe un array con enteros entre 0 y 200. Recorrer el array y guardar en un nuevo array sólo los
   //valores mayores a 100 (no incluye el 100). Finalmente devolver el nuevo array.
   // Tu código:
-  const arr = [];
-
-  for (let i = 0; i < array.length; i++)
-    if(array[i] > 100) arr.push(array[i]);
-
-  return arr;
+  return array.filter(v => v > 100);
 }
 
 
@@ -197,15 +169,12 @@ function breakStatement(numero) {
   //Pista: usá el statement 'break'
   // Tu código:
   const arr = [];
-
   for (let i = 0; i < 10; i++) 
   {
     numero += 2;
     if(i === numero) return "Se interrumpió la ejecución";
-
     arr.push(numero);
   }
-
   return arr;
 }
 
@@ -218,14 +187,12 @@ function continueStatement(numero) {
   //Pista: usá el statement 'continue'
   // Tu código:
   const arr = [];
-
   for (let i = 0; i < 10; i++) 
   {
     if(i === 5) continue;
     numero += 2;
     arr.push(numero);
   }
-
   return arr;
 }
 

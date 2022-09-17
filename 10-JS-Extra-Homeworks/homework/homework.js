@@ -23,12 +23,11 @@ function numberOfCharacters(string) {
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
   const dict = {};
-
-  for (let i = 0; i < string.length; i++) {
+  for (let i = 0; i < string.length; i++) 
+  {
     dict[string[i]] = dict[string[i]] || 0;
     dict[string[i]] += 1;
   }
-
   return dict;
 }
 
@@ -38,12 +37,9 @@ function capToFront(s) {
   //al principio de la palabra.
   //Ejemplo: soyHENRY -> HENRYsoy
   //Escribe tu código aquí
-
   s = s.split('');
-
   const u = s.filter(v => v === v.toUpperCase()).join('');
   const d = s.filter(v => v !== v.toUpperCase()).join('');
-
   return u + d;
 }
 
@@ -54,7 +50,10 @@ function asAmirror(str) {
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí;
-  return str.split(' ').map(v => v.split('').reverse().join('')).join(' ');
+  return str
+    .split(' ')
+    .map(v => v.split('').reverse().join(''))
+    .join(' ');
 } 
 
 
