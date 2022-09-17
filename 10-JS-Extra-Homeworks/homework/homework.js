@@ -23,11 +23,7 @@ function numberOfCharacters(string) {
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
   const dict = {};
-  for (let i = 0; i < string.length; i++) 
-  {
-    dict[string[i]] = dict[string[i]] || 0;
-    dict[string[i]] += 1;
-  }
+  string.split('').map(v => dict[v] = (dict[v] ?? 0) + 1);
   return dict;
 }
 
